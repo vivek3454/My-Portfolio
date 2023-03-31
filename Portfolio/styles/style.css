@@ -176,7 +176,7 @@ nav ul li a:hover {
 /* social */
 .social {
     position: fixed;
-    top: 580px;
+    top: 80%;
     left: 20px;
     display: flex;
     flex-direction: column;
@@ -199,20 +199,19 @@ nav ul li a:hover {
 
 /* hero section */
 
-/* #hero {
-    background: var(--bgwhite);
-} */
 
 #hero .container {
     height: 90vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 20px;
 
 }
 
 #hero .container .image-container img {
-    width: 550px;
+    max-width: 550px;
+    width: 100%;
     border-radius: 6px;
 }
 
@@ -233,9 +232,12 @@ nav ul li a:hover {
     font-weight: 600;
     color: var(--blue);
     position: relative;
+    overflow-wrap: break-word;
 }
 
+
 .text::before {
+    overflow-wrap: break-word;
     content: "";
     position: absolute;
     top: 0;
@@ -245,7 +247,6 @@ nav ul li a:hover {
     background: var(--bgwhite);
     border-left: 3px solid var(--blue);
     animation: animate 4s steps(12) infinite, blink-caret 0.75s step-end infinite;
-    /* animation: typing 5s steps(40, end) infinite, blink-caret 0.75s step-end infinite; */
 }
 
 @keyframes animate {
@@ -259,6 +260,7 @@ nav ul li a:hover {
         left: 0%;
     }
 }
+
 @keyframes blink-caret {
 
     from,
@@ -339,12 +341,12 @@ button:hover {
     /* padding: 60px 20px; */
 }
 
-#About .container .about-text{
+#About .container .about-text {
     font-size: 18px;
     font-weight: 500;
 }
 
-#About .container .about-text p{
+#About .container .about-text p {
     margin: 10px 0;
 }
 
@@ -374,6 +376,7 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     gap: 30px;
 }
 
@@ -524,7 +527,8 @@ button:hover {
 }
 
 #Contact .container form {
-    width: 400px;
+    max-width: 400px;
+    width: 100%;
     border: 3px solid var(--blue);
     border-radius: 6px;
     background: var(--bgwhite);
@@ -533,13 +537,15 @@ button:hover {
 
 #Contact .container .input-box {
     margin: 20px auto;
-    width: 360px;
+    max-width: 360px;
+    width: 100%;
     height: 60px;
 }
 
 #Contact .container .textarea-box {
     margin: 20px auto;
-    width: 360px;
+    max-width: 360px;
+    width: 100%;
     height: 80px;
 }
 
@@ -566,6 +572,20 @@ button[type="submit"] {
 
 
 /* media query */
+
+@media (max-width:1025px) {
+    #hero .container .image-container {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    #hero .container .image-container img {
+        max-width: 550px;
+        width: 80%;
+    }
+}
+
+
 @media (max-width:769px) {
     body {
         cursor: default;
@@ -578,14 +598,62 @@ button[type="submit"] {
     .cursor_outline {
         display: none;
     }
+
+    #hero {
+        padding-top: 150px;
+    }
+
+    #hero .container {
+        /* padding-top: 100px; */
+        flex-direction: column-reverse;
+        justify-content: center;
+        gap: 20px;
+        height: 60vh;
+    }
+
+    #About .container {
+        flex-direction: column-reverse;
+    }
+
+    .left-side{
+        padding-right: 70px;
+    }
+    #hero .container .image-container {
+        justify-content: center;
+    }
+    
+    
 }
 
 @media (max-width:426px) {
+    
     .menu {
         display: block;
+    }
+    
+    #hero {
+        padding-top: 0px;
+    }
+    
+    .name {
+        font-size: 30px;
+    }
+    .left-side{
+        padding-right: 25px;
     }
 
     nav ul {
         display: none;
+    }
+
+    .social {
+        top: 4%;
+        left: 75%;
+        flex-direction: row;
+        z-index: 20;
+    }
+
+    .text {
+        font-size: 18px;
     }
 }
