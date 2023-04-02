@@ -31,13 +31,13 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-    cursor: none;
-    color: aqua;
+::selection{
+    background: var(--black);
+    color: var(--blue);
 }
 
 a {
-    cursor: none;
+    /* cursor: none; */
     text-decoration: none;
 }
 
@@ -124,44 +124,55 @@ header .container {
     border-radius: 20%;
 }
 
-nav ul {
+nav ul,
+nav {
     display: flex;
-    gap: 40px;
+    align-items: center;
+    gap: 30px;
+}
+
+nav {
+    gap: 20px;
 }
 
 nav ul li {
     list-style: none;
+    transition: .4s;
+    border-radius: 20px;
+    padding: 0 10px;
 }
 
-nav ul li a {
+
+nav ul a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
     text-decoration: none;
     font-size: 20px;
     font-weight: 500;
     color: var(--black);
     font-weight: 500;
-    transition: .1s;
+    color: var(--black);
     border: transparent;
-    padding: 0 10px;
 }
 
-nav ul li a:hover {
-    border-bottom: 3px solid var(--blue);
-    border-radius: 2px;
-    color: var(--blue);
-    /* width: 70px;
-    height: 70px;
-    border-radius: 50%; */
-}
-
-nav ul li a:focus,
-nav ul li a:hover {
+nav ul a:focus li ,
+nav ul a:hover li {
     color: #fff;
     background: var(--blue);
-    border-radius: 20px;
 }
+
+nav ul .fa-solid{
+    color: var(--black);
+    font-size: 16px;
+    display: none;
+}
+
 
 #icon {
     height: 35px;
+    cursor: pointer;
 }
 
 .menu {
@@ -187,7 +198,7 @@ nav ul li a:hover {
     font-size: 33px;
     transition: all .4s;
     color: var(--black);
-    cursor: none;
+    /* cursor: none; */
 }
 
 .social i:hover {
@@ -286,7 +297,7 @@ button {
     color: #fff;
     border: 2px solid var(--blue);
     border-radius: 6px;
-    cursor: none;
+    /* cursor: none; */
     text-decoration: none;
     transition: .4s;
 }
@@ -386,11 +397,13 @@ button:hover {
     transition: .2s;
     border: 2px solid var(--blue);
     background: var(--gradient);
+    cursor: pointer;
 }
 
 #Skills .container .box:hover {
     background: var(--white);
     border-radius: 6px;
+    border-color: var(--black);
     box-shadow: 0 10px 40px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -561,13 +574,14 @@ button:hover {
     outline: none;
     background: var(--bgwhite);
     border: none;
-    cursor: none;
+    /* cursor: none; */
     border-bottom: 2px solid var(--blue);
 }
 
 button[type="submit"] {
     margin-top: 20px;
     width: 100%;
+    transition: .3s;
 }
 
 
@@ -615,45 +629,68 @@ button[type="submit"] {
         flex-direction: column-reverse;
     }
 
-    .left-side{
+    .left-side {
         padding-right: 70px;
     }
+
     #hero .container .image-container {
         justify-content: center;
     }
-    
-    
+
+
 }
 
 @media (max-width:426px) {
-    
-    .menu {
+
+    nav ul .fa-solid{
         display: block;
     }
-    
+
     #hero {
         padding-top: 0px;
     }
-    
+
     .name {
         font-size: 30px;
     }
-    .left-side{
+
+    .left-side {
         padding-right: 25px;
     }
 
     nav ul {
-        display: none;
+        background: var(--white);
+        position: fixed;
+        top: 90%;
+        left: 2%;
+        gap: 10px;
+        border-radius: 20px;padding: 10px 5px;
+        box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.2);
+    }
+    nav ul li{
+        font-size: 14px;
     }
 
     .social {
-        top: 4%;
-        left: 75%;
+        top: 3%;
+        left: 64%;
         flex-direction: row;
         z-index: 20;
     }
 
     .text {
         font-size: 18px;
+    }
+}
+
+@media (max-width:376px) {
+    nav ul{
+        left: 0px;
+    }
+    .social {
+        top: 3%;
+        left: 57%;
+        flex-direction: row;
+        z-index: 20;
     }
 }

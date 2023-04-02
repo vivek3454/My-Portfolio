@@ -20,21 +20,21 @@
 
 <body>
     <!-- custom cursor -->
-    <div class="cursor_dot" data-cursor-dot></div>
-    <div class="cursor_outline" data-cursor-outline></div>
+    <!-- <div class="cursor_dot" data-cursor-dot></div>
+    <div class="cursor_outline" data-cursor-outline></div> -->
     <!-- Header Section starts -->
     <header>
         <div class="container">
             <div class="logo">V</div>
             <nav>
                 <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#About">About</a></li>
-                    <li><a href="#Skills">Skills</a></li>
-                    <li><a href="#Projects">Projects</a></li>
-                    <li><a href="#Contact">Contact</a></li>
-                    <img src="/images/moon.png" id="icon" alt="icon">
+                    <a href="#hero"><i class="fa-solid fa-house"></i><li>Home</li></a>
+                    <a href="#About"><i class="fa-solid fa-user"></i><li>About</li></a>
+                    <a href="#Skills"><i class="fa-solid fa-graduation-cap"></i><li>Skills</li></a>
+                    <a href="#Projects"><i class="fa-solid fa-toolbox"></i><li>Projects</li></a>
+                    <a href="#Contact"><i class="fa-solid fa-envelope"></i><li>Contact</li></a>
                 </ul>
+                <img src="/images/moon.png" id="icon" alt="icon">
 
                 <!-- <div class="menu">
                     <i class="fa-solid fa-bars"></i>
@@ -232,16 +232,16 @@
     </section>
     <section id="Contact">
         <div class="container">
-            <form action="">
+            <form action="https://formspree.io/f/xyyanngn" method="POST">
                 <p class="contact-p">Contact Form</p>
                 <div class="input-box">
-                    <input type="text" name="" id="" placeholder="Enter your name">
+                    <input type="text" name="username" placeholder="Enter your name" required autocomplete="off">
                 </div>
                 <div class="input-box">
-                    <input type="email" name="" id="" placeholder="Enter your email">
+                    <input type="email" name="email" placeholder="Enter your email" required autocomplete="off">
                 </div>
                 <div class="textarea-box">
-                    <textarea name="" id="" placeholder="Write your message here..."></textarea>
+                    <textarea name="message" placeholder="Write your message here..." required autocomplete="off"></textarea>
                 </div>
                 <button type="submit">Send Message</button>
             </form>
