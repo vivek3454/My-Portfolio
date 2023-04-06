@@ -15,6 +15,7 @@
     --blue: #4070f4;
     --cursor-outline: rgba(64, 112, 244, 0.5);
     --gradient: rgb(255, 255, 255);
+    --shadow: rgba(0, 0, 0, 0.2);
 }
 
 .dark-theme {
@@ -24,14 +25,15 @@
     --black: white;
     --blue: #1aba95;
     --cursor-outline: rgba(26, 186, 149, 0.5);
-    --gradient: rgba(114, 114, 114, 0.1);
+    --gradient: rgba(114, 114, 114, 0.3);
+    --shadow: rgba(255, 255, 255, 0.2);
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-::selection{
+::selection {
     background: var(--black);
     color: var(--blue);
 }
@@ -45,30 +47,6 @@ section {
     scroll-margin: 61px;
     background: var(--bgwhite);
     color: var(--black);
-}
-
-/* custom cursor */
-.cursor_dot {
-    width: 15px;
-    height: 15px;
-    background: var(--blue);
-}
-
-.cursor_outline {
-    width: 30px;
-    height: 30px;
-    background: var(--cursor-outline);
-}
-
-.cursor_dot,
-.cursor_outline {
-    position: fixed;
-    /* top: 0;
-    left: 0; */
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index: 100;
-    pointer-events: none;
 }
 
 /*?Custome Scrollbar  */
@@ -157,13 +135,13 @@ nav ul a {
     border: transparent;
 }
 
-nav ul a:focus li ,
+nav ul a:focus li,
 nav ul a:hover li {
     color: #fff;
     background: var(--blue);
 }
 
-nav ul .fa-solid{
+nav ul .fa-solid {
     color: var(--black);
     font-size: 16px;
     display: none;
@@ -175,14 +153,6 @@ nav ul .fa-solid{
     cursor: pointer;
 }
 
-.menu {
-    display: none;
-    font-size: 25px;
-}
-
-.menu i {
-    color: var(--white);
-}
 
 /* social */
 .social {
@@ -198,8 +168,13 @@ nav ul .fa-solid{
     font-size: 33px;
     transition: all .4s;
     color: var(--black);
+    background: var(--white);
+    /* border-radius: 50%; */
+    overflow: hidden;
+    /* padding: -140px 0; */
     /* cursor: none; */
 }
+
 
 .social i:hover {
     color: var(--blue);
@@ -395,7 +370,7 @@ button:hover {
     /* background: var(--white); */
     border-radius: 6px;
     transition: .2s;
-    border: 2px solid var(--blue);
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.4);
     background: var(--gradient);
     cursor: pointer;
 }
@@ -403,8 +378,7 @@ button:hover {
 #Skills .container .box:hover {
     background: var(--white);
     border-radius: 6px;
-    border-color: var(--black);
-    box-shadow: 0 10px 40px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 40px 0px var(--shadow);
 }
 
 #Skills .container .img-box {
@@ -429,24 +403,24 @@ button:hover {
 /* Projects section */
 
 #Projects .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 30px;
+    max-width: 1300px;
+    width: 100%;
+    row-gap: 20px;
+    column-gap: 19px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(238px, 1fr));
 }
 
 .project {
-    max-width: 320px;
+    max-width: 292px;
     height: 400px;
     background: var(--gradient);
-    box-shadow: 0px 5px 18px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 10px;
-    border: 2px solid var(--blue);
-    border-radius: 8px;
+    border-radius: 6px;
 }
 
 .project video {
@@ -472,6 +446,7 @@ button:hover {
 
 .project .project-text .heading {
     font-size: 18px;
+    text-align: center;
     font-weight: 600;
 }
 
@@ -499,27 +474,6 @@ button:hover {
 
 .tech-stack .p-span {
     font-weight: 600;
-}
-
-.img-ovelay .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--blue);
-    opacity: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateY(100%);
-    transition: all 0.3s linear;
-    border-radius: 7px;
-}
-
-.img-ovelay:hover .overlay {
-    transform: translateY(0%);
-    opacity: 0.8;
 }
 
 #Contact {
@@ -600,18 +554,7 @@ button[type="submit"] {
 }
 
 
-@media (max-width:769px) {
-    body {
-        cursor: default;
-    }
-
-    .cursor_dot {
-        display: none;
-    }
-
-    .cursor_outline {
-        display: none;
-    }
+@media (max-width:900px) {
 
     #hero {
         padding-top: 150px;
@@ -621,7 +564,9 @@ button[type="submit"] {
         /* padding-top: 100px; */
         flex-direction: column-reverse;
         justify-content: center;
+        align-items: center;
         gap: 20px;
+        text-align: center;
         height: 60vh;
     }
 
@@ -629,20 +574,25 @@ button[type="submit"] {
         flex-direction: column-reverse;
     }
 
-    .left-side {
-        padding-right: 70px;
+    #About {
+        padding-top: 150px;
     }
+
 
     #hero .container .image-container {
         justify-content: center;
     }
 
+    .project {
+        max-width: 350px;
+    }
+
 
 }
 
-@media (max-width:426px) {
+@media (max-width:429px) {
 
-    nav ul .fa-solid{
+    nav ul .fa-solid {
         display: block;
     }
 
@@ -651,46 +601,54 @@ button[type="submit"] {
     }
 
     .name {
-        font-size: 30px;
-    }
-
-    .left-side {
-        padding-right: 25px;
+        font-size: 40px;
     }
 
     nav ul {
         background: var(--white);
         position: fixed;
-        top: 90%;
-        left: 2%;
-        gap: 10px;
-        border-radius: 20px;padding: 10px 5px;
+        max-width: 500px;
+        bottom: 3px;
+        left: 4px;
+        gap: 20px;
+        padding: 10px 10px;
+        border-radius: 20px;
         box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.2);
     }
-    nav ul li{
-        font-size: 14px;
+    
+    nav ul li {
+        font-size: 13px;
     }
-
+    
     .social {
         top: 3%;
         left: 64%;
         flex-direction: row;
         z-index: 20;
     }
-
+    
     .text {
-        font-size: 18px;
+        font-size: 20px;
     }
 }
 
 @media (max-width:376px) {
-    nav ul{
-        left: 0px;
+    nav ul {
+        gap: 10px;
     }
+
+    nav ul li {
+        font-size: 12px;
+    }
+
     .social {
         top: 3%;
         left: 57%;
         flex-direction: row;
         z-index: 20;
+    }
+
+    .buttons a{
+        font-size: 16px;
     }
 }
